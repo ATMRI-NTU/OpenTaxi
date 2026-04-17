@@ -41,9 +41,9 @@ rl = ["gymnasium", "stable-baselines3", "scipy"]
 full = ["cairosvg", "Pillow", "contextily", "gymnasium", "stable-baselines3", "scipy"]
 
 [project.urls]
-Homepage = "https://github.com/your-org/OpenTaxi"
-Repository = "https://github.com/your-org/OpenTaxi"
-Issues = "https://github.com/your-org/OpenTaxi/issues"
+Homepage = "https://github.com/ATMRI-NTU/OpenTaxi"
+Repository = "https://github.com/ATMRI-NTU/OpenTaxi"
+Issues = "https://github.com/ATMRI-NTU/OpenTaxi/issues"
 
 [tool.setuptools.packages.find]
 include = ["opentaxi*"]
