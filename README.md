@@ -45,10 +45,16 @@ OpenTaxi/
 
 ## Installation
 
+### From PyPI (Recommended)
+
+```bash
+pip install opentaxi
+```
+
 ### From source
 
 ```bash
-git clone https://github.com/your-org/OpenTaxi.git
+git clone https://github.com/ATMRI-NTU/OpenTaxi.git
 cd OpenTaxi
 pip install -e .
 ```
@@ -131,17 +137,34 @@ If you use OpenTaxi in your research, please cite:
 
 ```bibtex
 @software{opentaxi2025,
-  title  = {OpenTaxi: Open-Source Airport Surface Movement Simulator},
+  title  = {OpenTaxi: Open-Source Modular Simulator for Airport Surface Operations},
+  author = {Ali, Hasnain and Yang, Haohan and Pham, Duc-Thinh and Alam, Sameer},
   year   = {2025},
-  url    = {https://github.com/your-org/OpenTaxi}
+  url    = {https://github.com/ATMRI-NTU/OpenTaxi}
 }
 ```
+
+**Paper:** Ali, H., Yang, H., Pham, D.-T., & Alam, S. (2025). OpenTaxi: An Open-Source Modular Simulator for Airport Surface Operations. *Journal of Open Aviation Science*. [Preprint available](https://github.com/ATMRI-NTU/OpenTaxi)
+
+## Links
+
+- **GitHub:** https://github.com/ATMRI-NTU/OpenTaxi
+- **PyPI:** https://pypi.org/project/opentaxi/
+- **Paper:** [OpenTaxi: An Open-Source Modular Simulator for Airport Surface Operations](https://github.com/ATMRI-NTU/OpenTaxi)
 
 ## License
 
 MIT License. See [LICENSE](LICENSE) for details.
 
+## Authors
+
+- **Hasnain Ali** (Lead Developer) – School of Mechanical and Aerospace Engineering, Nanyang Technological University
+- **Haohan Yang** – School of Mechanical and Aerospace Engineering, Nanyang Technological University
+- **Duc-Thinh Pham** – School of Mechanical and Aerospace Engineering, Nanyang Technological University
+- **Sameer Alam** (Corresponding Author) – sameeralam@ntu.edu.sg – School of Mechanical and Aerospace Engineering, Nanyang Technological University
+
 ## Acknowledgements
 
 - Airport map data derived from OpenStreetMap.
 - Project structure inspired by [BlueSky ATC Simulator](https://github.com/TUDelft-CNS-ATM/bluesky) (Hoekstra & Ellerbroek, ICRAT 2016).
+- Funded by the Air Traffic Management Research Institute (ATMRI), Nanyang Technological University.

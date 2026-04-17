@@ -10,7 +10,10 @@ readme = "README.md"
 license = "MIT"
 requires-python = ">=3.8"
 authors = [
-    {name = "OpenTaxi Contributors"},
+    {name = "Hasnain Ali", email = "hasnain@ntu.edu.sg"},
+    {name = "Haohan Yang"},
+    {name = "Duc-Thinh Pham"},
+    {name = "Sameer Alam"},
 ]
 keywords = [
     "airport", "taxi", "simulation", "air-traffic-management",
