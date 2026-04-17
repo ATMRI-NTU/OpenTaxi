@@ -1,0 +1,52 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "opentaxi"
+version = "0.1.0"
+description = "Open-source airport surface movement simulator"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.8"
+authors = [
+    {name = "OpenTaxi Contributors"},
+]
+keywords = [
+    "airport", "taxi", "simulation", "air-traffic-management",
+    "path-planning", "reinforcement-learning",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Scientific/Engineering :: GIS",
+]
+dependencies = [
+    "numpy",
+    "networkx",
+    "pyproj",
+    "matplotlib",
+]
+
+[project.optional-dependencies]
+vis = ["cairosvg", "Pillow", "contextily"]
+rl = ["gymnasium", "stable-baselines3", "scipy"]
+full = ["cairosvg", "Pillow", "contextily", "gymnasium", "stable-baselines3", "scipy"]
+
+[project.urls]
+Homepage = "https://github.com/your-org/OpenTaxi"
+Repository = "https://github.com/your-org/OpenTaxi"
+Issues = "https://github.com/your-org/OpenTaxi/issues"
+
+[tool.setuptools.packages.find]
+include = ["opentaxi*"]
+
+[tool.setuptools.package-data]
+opentaxi = ["airport_map/*.graphml", "airport_map/*.svg"]

@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+*.egg
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Data (not open-sourced)
+dataset/
+*.pkl
+*.pickle
+
+# RL outputs
+rl_models/
+*.mat
+*.npy
+tensorboard/
+
+# Visualisation output
+frames/
+replay_frames/
+*.png
+!opentaxi/airport_map/*.svg
+
+# OS
+.DS_Store
+Thumbs.db
