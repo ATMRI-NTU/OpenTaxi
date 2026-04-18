@@ -159,9 +159,9 @@ MIT License. See [LICENSE](LICENSE) for details.
 ## Authors
 
 - **Hasnain Ali** (Lead Developer) – School of Mechanical and Aerospace Engineering, Nanyang Technological University
-- **Haohan Yang** – School of Mechanical and Aerospace Engineering, Nanyang Technological University
+- **Haohan Yang** (Lead Developer) – School of Mechanical and Aerospace Engineering, Nanyang Technological University
 - **Duc-Thinh Pham** – School of Mechanical and Aerospace Engineering, Nanyang Technological University
-- **Sameer Alam** (Corresponding Author) – sameeralam@ntu.edu.sg – School of Mechanical and Aerospace Engineering, Nanyang Technological University
+- **Sameer Alam** – School of Mechanical and Aerospace Engineering, Nanyang Technological University
 
 ## Acknowledgements
 
