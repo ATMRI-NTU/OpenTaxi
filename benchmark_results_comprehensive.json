@@ -1,0 +1,122 @@
+{
+  "1_aircraft_scaling": [
+    {
+      "num_aircraft": 5,
+      "duration_steps": 400,
+      "duration_sim_seconds": 2000,
+      "wall_clock_seconds": 37.9088,
+      "speed_ratio_sim_per_realtime": 52.76,
+      "completed_aircraft": 5,
+      "completion_rate_percent": 100.0,
+      "total_conflicts": 0,
+      "avg_taxi_time_seconds": 745.0,
+      "throughput_aircraft_per_hour": 17.65
+    },
+    {
+      "num_aircraft": 10,
+      "duration_steps": 400,
+      "duration_sim_seconds": 2000,
+      "wall_clock_seconds": 74.9147,
+      "speed_ratio_sim_per_realtime": 26.7,
+      "completed_aircraft": 9,
+      "completion_rate_percent": 90.0,
+      "total_conflicts": 0,
+      "avg_taxi_time_seconds": 859.44,
+      "throughput_aircraft_per_hour": 16.24
+    },
+    {
+      "num_aircraft": 20,
+      "duration_steps": 400,
+      "duration_sim_seconds": 2000,
+      "wall_clock_seconds": 88.6314,
+      "speed_ratio_sim_per_realtime": 22.57,
+      "completed_aircraft": 11,
+      "completion_rate_percent": 55.0,
+      "total_conflicts": 0,
+      "avg_taxi_time_seconds": 691.36,
+      "throughput_aircraft_per_hour": 19.85
+    },
+    {
+      "num_aircraft": 50,
+      "duration_steps": 400,
+      "duration_sim_seconds": 2000,
+      "wall_clock_seconds": 122.0461,
+      "speed_ratio_sim_per_realtime": 16.39,
+      "completed_aircraft": 14,
+      "completion_rate_percent": 28.0,
+      "total_conflicts": 0,
+      "avg_taxi_time_seconds": 792.14,
+      "throughput_aircraft_per_hour": 25.26
+    }
+  ],
+  "2_visualization_overhead": {
+    "headless_seconds": 66.3729,
+    "visualization_seconds": 67.4762,
+    "overhead_percent": 1.7,
+    "display_available": true
+  },
+  "3_planner_comparison": [
+    {
+      "planner": "AStarPlanner",
+      "wall_clock_seconds": 74.3416,
+      "completed_aircraft": 10,
+      "completion_rate_percent": 100.0,
+      "total_conflicts": 0,
+      "avg_taxi_time_seconds": 810.0,
+      "throughput_aircraft_per_hour": 18.6
+    },
+    {
+      "planner": "DijkstraPlanner",
+      "wall_clock_seconds": 62.7914,
+      "completed_aircraft": 10,
+      "completion_rate_percent": 100.0,
+      "total_conflicts": 0,
+      "avg_taxi_time_seconds": 695.5,
+      "throughput_aircraft_per_hour": 21.62
+    },
+    {
+      "planner": "GreedyPlanner",
+      "wall_clock_seconds": 75.1656,
+      "completed_aircraft": 9,
+      "completion_rate_percent": 90.0,
+      "total_conflicts": 0,
+      "avg_taxi_time_seconds": 807.22,
+      "throughput_aircraft_per_hour": 16.24
+    }
+  ],
+  "4_controller_comparison": [
+    {
+      "controller": "StopGo",
+      "wall_clock_seconds": 50.7061,
+      "completed_aircraft": 10,
+      "completion_rate_percent": 100.0,
+      "total_conflicts": 5,
+      "avg_taxi_time_seconds": 708.0,
+      "throughput_aircraft_per_hour": 32.14
+    },
+    {
+      "controller": "Opt_StopGo",
+      "wall_clock_seconds": 62.442,
+      "completed_aircraft": 10,
+      "completion_rate_percent": 100.0,
+      "total_conflicts": 0,
+      "avg_taxi_time_seconds": 655.5,
+      "throughput_aircraft_per_hour": 21.82
+    }
+  ],
+  "5_rl_environment": {
+    "num_episodes": 10,
+    "num_aircraft": 10,
+    "max_steps_per_episode": 400,
+    "avg_episode_time_seconds": 0.1986,
+    "min_episode_time_seconds": 0.1349,
+    "max_episode_time_seconds": 0.2381,
+    "std_episode_time_seconds": 0.0285,
+    "avg_reward": -160.85,
+    "std_reward": 76.05,
+    "min_reward": -327.7,
+    "max_reward": -48.41,
+    "avg_completions_per_episode": 4.4,
+    "avg_conflicts_per_episode": 260.3
+  }
+}

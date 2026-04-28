@@ -1,0 +1,135 @@
+{
+  "metadata": {
+    "description": "Light traffic scenario with 10 aircraft",
+    "source": "OpenTaxi synthetic scenario generator",
+    "validation": "Calibrated with Changi Airport A-SMGCS data (Section 4.2)"
+  },
+  "simulation": {
+    "airport_map": "opentaxi/airport_map/changi.graphml",
+    "duration_seconds": 1800,
+    "timestep_seconds": 5,
+    "seed": 42
+  },
+  "aircraft": [
+    {
+      "id": "AC001",
+      "type": "B777",
+      "start_node": null,
+      "end_node": null,
+      "target_velocity": 30.0,
+      "max_acceleration": 0.2,
+      "max_deceleration": 0.5,
+      "min_separation": 50.0,
+      "spawn_time": 4.182803953736514,
+      "priority": 2
+    },
+    {
+      "id": "AC002",
+      "type": "B737",
+      "start_node": null,
+      "end_node": null,
+      "target_velocity": 30.0,
+      "max_acceleration": 0.2,
+      "max_deceleration": 0.5,
+      "min_separation": 50.0,
+      "spawn_time": 165.75032265668,
+      "priority": 5
+    },
+    {
+      "id": "AC003",
+      "type": "B777",
+      "start_node": null,
+      "end_node": null,
+      "target_velocity": 30.0,
+      "max_acceleration": 0.2,
+      "max_deceleration": 0.5,
+      "min_separation": 50.0,
+      "spawn_time": 353.2508795510736,
+      "priority": 5
+    },
+    {
+      "id": "AC004",
+      "type": "A330",
+      "start_node": null,
+      "end_node": null,
+      "target_velocity": 30.0,
+      "max_acceleration": 0.2,
+      "max_deceleration": 0.5,
+      "min_separation": 50.0,
+      "spawn_time": 531.6963221444647,
+      "priority": 5
+    },
+    {
+      "id": "AC005",
+      "type": "A330",
+      "start_node": null,
+      "end_node": null,
+      "target_velocity": 30.0,
+      "max_acceleration": 0.2,
+      "max_deceleration": 0.5,
+      "min_separation": 50.0,
+      "spawn_time": 727.0941364249204,
+      "priority": 2
+    },
+    {
+      "id": "AC006",
+      "type": "A320",
+      "start_node": null,
+      "end_node": null,
+      "target_velocity": 30.0,
+      "max_acceleration": 0.2,
+      "max_deceleration": 0.5,
+      "min_separation": 50.0,
+      "spawn_time": 905.3009846226873,
+      "priority": 5
+    },
+    {
+      "id": "AC007",
+      "type": "B777",
+      "start_node": null,
+      "end_node": null,
+      "target_velocity": 30.0,
+      "max_acceleration": 0.2,
+      "max_deceleration": 0.5,
+      "min_separation": 50.0,
+      "spawn_time": 1091.7653870311453,
+      "priority": 1
+    },
+    {
+      "id": "AC008",
+      "type": "A320",
+      "start_node": null,
+      "end_node": null,
+      "target_velocity": 30.0,
+      "max_acceleration": 0.2,
+      "max_deceleration": 0.5,
+      "min_separation": 50.0,
+      "spawn_time": 1247.6081649788825,
+      "priority": 4
+    },
+    {
+      "id": "AC009",
+      "type": "B777",
+      "start_node": null,
+      "end_node": null,
+      "target_velocity": 30.0,
+      "max_acceleration": 0.2,
+      "max_deceleration": 0.5,
+      "min_separation": 50.0,
+      "spawn_time": 1437.6576545905582,
+      "priority": 3
+    },
+    {
+      "id": "AC010",
+      "type": "A320",
+      "start_node": null,
+      "end_node": null,
+      "target_velocity": 30.0,
+      "max_acceleration": 0.2,
+      "max_deceleration": 0.5,
+      "min_separation": 50.0,
+      "spawn_time": 1605.893916583142,
+      "priority": 2
+    }
+  ]
+}
