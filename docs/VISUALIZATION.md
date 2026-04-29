@@ -329,11 +329,11 @@ sim.run()  # Frames streamed to disk
 ```python
 import matplotlib.pyplot as plt
 from opentaxi.simulator import Simulation
-from opentaxi.evaluation import Evaluator
+from opentaxi.evaluation import SchedulerEvaluator
 
 # Run simulation WITHOUT built-in visualization
 sim = Simulation(...)
-evaluator = Evaluator()
+evaluator = SchedulerEvaluator(conflict_threshold=50.0)
 sim.evaluator = evaluator
 sim.run()
 

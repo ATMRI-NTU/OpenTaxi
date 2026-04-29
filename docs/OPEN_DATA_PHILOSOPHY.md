@@ -192,8 +192,16 @@ You can verify without accessing restricted data:
 
 ```python
 # Compare our benchmark results with your expectations
-results = sim.run(scenario=benchmark_light)
-print(results['metrics']['avg_taxi_time'])  # Should be ~1200-1400s for Changi
+import json
+with open('examples/scenarios/benchmark_traffic_light.json') as f:
+    scenario = json.load(f)
+
+# Run simulation with benchmark scenario
+sim = Simulation(airport, planner, controller, num_agents=len(scenario['aircraft']))
+sim.run(max_steps=scenario['simulation']['max_steps'])
+
+# Access taxi time via metrics or direct aircraft inspection
+print(f"Avg taxi time: {np.mean([ac.taxi_time for ac in sim.aircrafts.values()])}s")
 
 # Run effect size test (if you have your own RTD)
 validator.cohens_d(your_real_data, our_simulated_data)

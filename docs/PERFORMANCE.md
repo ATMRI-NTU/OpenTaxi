@@ -15,7 +15,7 @@ This document describes OpenTaxi's computational performance characteristics acr
 
 Run `python comprehensive_benchmark.py` to measure wall-clock time on your hardware.
 
-### Actual Measured Performance (macOS Intel i7-10700K)
+### Actual Measured Performance (Intel Core i7-10700K, 32GB RAM)
 
 **Configuration:** A* planner, Opt_StopGo controller, 400 simulation steps (2000s ≈ 33 minutes simulated)
 
@@ -244,36 +244,41 @@ python3 comprehensive_benchmark.py
 
 ---
 
-## Discussion: Interpreting Completion Rates
+## Discussion: Interpreting Results
 
-### Understanding the 28% Completion Rate
+### Completion Rates and Aircraft Throughput
 
-The benchmark shows that with **50 aircraft in a 33-minute simulation window, only 28% (14/50) complete their flights**. This is **not a limitation of the simulator, but an accurate representation of Changi Airport peak operations**.
+The benchmark results show varying completion rates as traffic density increases:
+- **5 aircraft:** 100% complete in 33-minute window
+- **10 aircraft:** 90% complete
+- **20 aircraft:** 55% complete
+- **50 aircraft:** 28% complete (~25 aircraft/hour throughput)
 
-**Why completion rates vary with traffic density:**
+**What these numbers mean:**
 
-1. **At 5 aircraft (100% complete):** Low density, no congestion — all aircraft reach runways quickly
-2. **At 10 aircraft (90% complete):** Typical operations — most aircraft complete
-3. **At 20 aircraft (55% complete):** Elevated congestion begins — half the aircraft queue at gates/taxiways
-4. **At 50 aircraft (28% complete):** Peak stress scenario — airport reaches holding capacity during 33-minute window
+The decreasing completion rate reflects realistic airport saturation behavior:
+1. At low densities (5 aircraft), the infrastructure has spare capacity — all aircraft flow through
+2. At high densities (50 aircraft), aircraft queue at gates and taxiways, limiting throughput
+3. At 50 aircraft, only 28% complete in a 33-minute window because many are actively being held (not a simulator failure, but accurate modeling of constrained infrastructure)
 
-**Real-world parallels:**
+**Confounding factors in computational scaling:**
 
-- Changi Airport in peak hours (morning bank) handles 50-80 aircraft simultaneously
-- Not all complete pushback/takeoff in every 30-minute window — some hold at gates
-- This simulator captures this realistic bottleneck behavior
-- Lower completion rates at high densities reflect **accurate surface congestion modeling**, not algorithmic failure
+The "sublinear" scaling (52.76x → 16.39x speedup) is partly an artifact of completion patterns: at 50 aircraft, only 14 are actively taxiing (28% completion), while 36 sit idle at gates/taxiways. This reduces computational load compared to 50 active aircraft. Wall-clock time therefore scales less steeply not just due to O(n²) conflict detection, but also due to fewer active aircraft consuming computation.
 
-**Key insight for research:** The completion rate is **a metric of airport saturation**, not simulator correctness. The zero-conflict results across all densities confirm that the control system works properly; the varying completion rates demonstrate that the simulator realistically models infrastructure limits.
+### Taxi Time Validation
 
-### Validation Against Real Operations
+- **Simulator average taxi time:** 745–859 seconds across tested densities
+- **Changi A-SMGCS calibration target:** Cohen's d < 0.04 (negligible effect size)
+- **Conflicts detected:** 0 across all tests (control system effective)
 
-- **Changi average taxi time:** 745–859 seconds (our results)
-- **Published literature (airport surface RTD):** Typical range 700–900 seconds
-- **Conflicts detected:** 0 across all tests (control system prevents conflicts)
-- **Computational scaling:** Sublinear (52.76x → 16.39x) — realistic for O(n²) conflict detection
+**What we can and cannot claim:**
 
-These results validate that OpenTaxi accurately simulates real airport surface behavior, including the realistic congestion patterns observed at high traffic densities.
+✅ **Can claim:** The simulator exhibits realistic congestion patterns and maintains safety (zero conflicts)  
+✅ **Can claim:** Taxi times match the calibration dataset used for parameter extraction (Cohen's d validation)  
+❌ **Cannot claim:** These completion rates "validate" the simulator against real Changi operations without direct comparison data  
+❌ **Cannot claim:** The simulator is "more accurate" than other approaches without comparative benchmarks  
+
+The benchmark demonstrates that OpenTaxi exhibits expected behavior under load: congestion emerges naturally as aircraft density increases, without producing artificial conflicts. That validates the simulator's *consistency*, not necessarily its *accuracy* versus real operations — that validation was established during calibration (Cohen's d < 0.04 for taxi time distributions).
 
 ---
 

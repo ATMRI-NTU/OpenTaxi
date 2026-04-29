@@ -176,6 +176,7 @@ env = AirportRLEnv(
     min_separation=50.0,              # Minimum safe distance (meters)
     hard_stop_distance=20.0,          # Hard stop threshold (meters)
     max_steps=2000,                   # Episode max steps
+    max_episodes=1500,                # Maximum episodes before training stops
     render=False                      # Enable visualization
 )
 ```
@@ -396,14 +397,15 @@ for trial in range(10):
             break
     results['RL'].append(rl_reward)
     
-    # Baseline: rule-based controller (Stop-Go is default)
-    # Run same scenario without RL policy, using environment's internal controller
+    # Baseline: Stop-Go controller (all aircraft move freely until conflict)
+    # Run same scenario without RL policy, using environment's internal Stop-Go logic
     env = AirportRLEnv(airport, planner, num_aircraft=20)
     obs, _ = env.reset()
     sg_reward = 0
     for _ in range(1000):
-        # Use a simple all-stop action (baseline: don't proceed)
-        action = np.zeros(20, dtype=int)  # All aircraft stop
+        # Baseline: all aircraft always proceed (action=1)
+        # Conflicts are prevented by the environment's internal Stop-Go controller
+        action = np.ones(20, dtype=int)  # All aircraft attempt to proceed
         obs, reward, terminated, truncated, _ = env.step(action)
         sg_reward += reward
         if terminated or truncated:

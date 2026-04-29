@@ -351,9 +351,9 @@ Per-aircraft features (6 values), normalized to [0, 1]:
 | 0 | `remaining_distance_norm` | (path_length - curr_s) / 2000 |
 | 1 | `dist_to_predecessor_norm` | min(dist_to_prev_ac / 50, 1.0) |
 | 2 | `velocity_norm` | velocity / 30 km/h |
-| 3 | `is_done` | 1.0 if aircraft finished, else 0.0 |
-| 4 | `is_arrived` | 1.0 if reached destination, else 0.0 |
-| 5 | `is_waiting` | 1.0 if holding at node, else 0.0 |
+| 3 | `is_arrived` | 1.0 if reached destination, else 0.0 |
+| 4 | `is_waiting` | 1.0 if holding at node, else 0.0 |
+| 5 | `is_done` | 1.0 if aircraft finished, else 0.0 |
 
 Aircraft are sorted by remaining distance each step (closest to destination first).
 
