@@ -205,24 +205,29 @@ sim.run(max_steps=720)  # ~60 min
 
 ## Hardware Recommendations
 
-### Minimum
+### Tested Configuration
 
-- **CPU:** Dual-core, 2+ GHz (Intel Core i5, AMD Ryzen 5)
-- **RAM:** 4 GB
-- **Use case:** Single episode, < 20 aircraft
+- **Processor:** Intel Core i7-10700K (10 cores, 3.8–5.1 GHz)
+- **RAM:** 32 GB
+- **Result:** 50 aircraft completed in 122 seconds (~16.39x speedup)
 
-### Recommended
+### Scaling Guidelines (Extrapolated)
 
-- **CPU:** Quad-core, 3+ GHz (Intel i7-11th gen, AMD Ryzen 7)
-- **RAM:** 8 GB
-- **Use case:** Multiple episodes in parallel, 20–50 aircraft
+Based on approximately linear scaling observed in benchmarks, hardware requirements scale with aircraft count and parallel episodes:
 
-### High Performance (RL Training / Massive Benchmarking)
+- **Single episode, < 10 aircraft:** Modest hardware (estimated: dual-core+ 2+ GHz, 4 GB RAM minimum)
+- **Single episode, 10–50 aircraft:** Moderate hardware (estimated: quad-core 3+ GHz, 8–16 GB RAM)
+- **Parallel episodes (100+) or RL training:** High-end hardware (8+ cores 3.5+ GHz, 16+ GB RAM)
 
-- **CPU:** 8+ cores, 3.5+ GHz (Intel i9, AMD Ryzen 9)
-- **RAM:** 16+ GB
-- **GPU:** Optional (used by deep RL libraries, not by simulator)
-- **Use case:** 100+ parallel episodes, large-scale studies
+### Important Notes
+
+⚠️ **Extrapolation caveat:** These are *estimates* based on single i7-10700K benchmark. Not validated on lower-spec hardware.
+
+⚠️ **Architecture differences:** Benchmarks conducted on x86 (Intel). Apple Silicon (M1/M2/M3) performance not empirically tested; ARM vs. x86 scaling may differ.
+
+⚠️ **RL training:** Stable-Baselines3 can use GPU acceleration (optional). If using GPU, add memory requirements for your specific GPU and learning library.
+
+⚠️ **Real-world factors:** Actual performance depends on CPU clock speed, memory bandwidth, disk I/O, and background processes.
 
 ---
 
@@ -271,12 +276,11 @@ The "sublinear" scaling (52.76x → 16.39x speedup) is partly an artifact of com
 - **Changi A-SMGCS calibration target:** Cohen's d < 0.04 (negligible effect size)
 - **Conflicts detected:** 0 across all tests (control system effective)
 
-**What we can and cannot claim:**
+**What we can claim:**
 
 ✅ **Can claim:** The simulator exhibits realistic congestion patterns and maintains safety (zero conflicts)  
 ✅ **Can claim:** Taxi times match the calibration dataset used for parameter extraction (Cohen's d validation)  
-❌ **Cannot claim:** These completion rates "validate" the simulator against real Changi operations without direct comparison data  
-❌ **Cannot claim:** The simulator is "more accurate" than other approaches without comparative benchmarks  
+
 
 The benchmark demonstrates that OpenTaxi exhibits expected behavior under load: congestion emerges naturally as aircraft density increases, without producing artificial conflicts. That validates the simulator's *consistency*, not necessarily its *accuracy* versus real operations — that validation was established during calibration (Cohen's d < 0.04 for taxi time distributions).
 
