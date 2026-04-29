@@ -15,7 +15,7 @@ This document describes OpenTaxi's computational performance characteristics acr
 
 Run `python comprehensive_benchmark.py` to measure wall-clock time on your hardware.
 
-### Actual Measured Performance (Intel Core i7-10700K, 32GB RAM)
+### Actual Measured Performance (Apple M1 Max, 10 cores, 64GB RAM)
 
 **Configuration:** A* planner, Opt_StopGo controller, 400 simulation steps (2000s ≈ 33 minutes simulated)
 
@@ -207,13 +207,13 @@ sim.run(max_steps=720)  # ~60 min
 
 ### Tested Configuration
 
-- **Processor:** Intel Core i7-10700K (10 cores, 3.8–5.1 GHz)
-- **RAM:** 32 GB
+- **Processor:** Apple M1 Max (10 cores: 8 performance + 2 efficiency, ARM64)
+- **RAM:** 64 GB
+- **Hardware:** MacBook Pro 18,4 (2023)
 - **Result:** 50 aircraft completed in 122 seconds (~16.39x speedup)
 
 ### Scaling Guidelines (Extrapolated)
-
-Based on approximately linear scaling observed in benchmarks, hardware requirements scale with aircraft count and parallel episodes:
+on Apple M1 Max, hardware requirements scale with aircraft count and parallel episodes:
 
 - **Single episode, < 10 aircraft:** Modest hardware (estimated: dual-core+ 2+ GHz, 4 GB RAM minimum)
 - **Single episode, 10–50 aircraft:** Moderate hardware (estimated: quad-core 3+ GHz, 8–16 GB RAM)
@@ -221,8 +221,9 @@ Based on approximately linear scaling observed in benchmarks, hardware requireme
 
 ### Important Notes
 
-⚠️ **Extrapolation caveat:** These are *estimates* based on single i7-10700K benchmark. Not validated on lower-spec hardware.
+⚠️ **Extrapolation caveat:** These are *estimates* based on single Apple M1 Max benchmark. Not validated on other architectures (Intel x86, older Macs, etc.).
 
+⚠️ **Architecture differences:** Benchmarks conducted on ARM64 (Apple Silicon M1 Max). Performance on x86 Intel, AMD Ryzen, or other M-series generations
 ⚠️ **Architecture differences:** Benchmarks conducted on x86 (Intel). Apple Silicon (M1/M2/M3) performance not empirically tested; ARM vs. x86 scaling may differ.
 
 ⚠️ **RL training:** Stable-Baselines3 can use GPU acceleration (optional). If using GPU, add memory requirements for your specific GPU and learning library.
