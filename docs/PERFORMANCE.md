@@ -213,7 +213,8 @@ sim.run(max_steps=720)  # ~60 min
 - **Result:** 50 aircraft completed in 122 seconds (~16.39x speedup)
 
 ### Scaling Guidelines (Extrapolated)
-on Apple M1 Max, hardware requirements scale with aircraft count and parallel episodes:
+
+Based on approximately linear scaling observed on Apple M1 Max, hardware requirements scale with aircraft count and parallel episodes:
 
 - **Single episode, < 10 aircraft:** Modest hardware (estimated: dual-core+ 2+ GHz, 4 GB RAM minimum)
 - **Single episode, 10–50 aircraft:** Moderate hardware (estimated: quad-core 3+ GHz, 8–16 GB RAM)
@@ -223,8 +224,7 @@ on Apple M1 Max, hardware requirements scale with aircraft count and parallel ep
 
 ⚠️ **Extrapolation caveat:** These are *estimates* based on single Apple M1 Max benchmark. Not validated on other architectures (Intel x86, older Macs, etc.).
 
-⚠️ **Architecture differences:** Benchmarks conducted on ARM64 (Apple Silicon M1 Max). Performance on x86 Intel, AMD Ryzen, or other M-series generations
-⚠️ **Architecture differences:** Benchmarks conducted on x86 (Intel). Apple Silicon (M1/M2/M3) performance not empirically tested; ARM vs. x86 scaling may differ.
+⚠️ **Architecture differences:** Benchmarks conducted on ARM64 (Apple Silicon M1 Max). Performance on x86 Intel, AMD Ryzen, or other M-series generations may differ.
 
 ⚠️ **RL training:** Stable-Baselines3 can use GPU acceleration (optional). If using GPU, add memory requirements for your specific GPU and learning library.
 
