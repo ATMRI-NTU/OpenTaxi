@@ -1,5 +1,8 @@
 # OpenTaxi – Open-Source Airport Surface Movement Simulator
 
+[![PyPI version](https://badge.fury.io/py/opentaxi.svg)](https://badge.fury.io/py/opentaxi)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 OpenTaxi is an open-source simulator for airport surface (taxiway) operations. It models multi-aircraft movement from parking positions to runway thresholds on a realistic airport graph network, with conflict detection and resolution.
 
 OpenTaxi is meant as a research tool for studying airport surface traffic management, path planning algorithms, and reinforcement learning–based control. It is distributed under the **MIT License** and can be freely used, modified, and cited without restrictions.
