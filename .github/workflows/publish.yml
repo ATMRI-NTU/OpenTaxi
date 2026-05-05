@@ -11,17 +11,15 @@ jobs:
       id-token: write
       contents: read
       attestations: write
-    env:
-      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4.1.7
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v5.1.0
         with:
           python-version: "3.11"
 
@@ -37,3 +35,4 @@ jobs:
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
           verbose: true
+          attestations: false
